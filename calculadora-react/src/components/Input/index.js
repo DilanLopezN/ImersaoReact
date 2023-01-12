@@ -1,8 +1,8 @@
 import { InputContainer } from './styles'
-const InputComponent = () => {
+const InputComponent = ({ value }) => {
   return (
     <InputContainer>
-      <input></input>
+      <input disabled value={value} />
     </InputContainer>
   )
 }

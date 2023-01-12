@@ -1,3 +1,5 @@
-const Button = () => {
-  return <div>Calcular.</div>
+import { ButtonContainer } from './styles'
+export const Button = ({ label, onClick }) => {
+  return <ButtonContainer onClick={onClick}>{label}</ButtonContainer>
 }
+export default Button

@@ -49,6 +49,17 @@ function App() {
       setOperation('')
     }
   }
+  const handleMultiNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber))
+      setCurrentNumber('0')
+      setOperation('*')
+    } else {
+      const sum = Number(firstNumber) * Number(currentNumber)
+      setCurrentNumber(String(sum))
+      setOperation('')
+    }
+  }
 
   const handleEquals = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
@@ -62,6 +73,9 @@ function App() {
         case '/':
           handleDividerNumbers()
           break
+        case '*':
+          handleMultiNumbers()
+          break
         default:
           break
       }
@@ -73,9 +87,9 @@ function App() {
       <Content>
         <InputComponent value={currentNumber} />
         <Row>
-          <Button label="%" />
+          <Button label="disabled %" />
           <Button label="C" onClick={() => handleClear()} />
-          <Button label="X" />
+          <Button label="*" onClick={handleMultiNumbers} />
           <Button label="/" onClick={handleDividerNumbers} />
         </Row>
 

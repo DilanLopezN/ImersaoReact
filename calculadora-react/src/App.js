@@ -60,7 +60,18 @@ function App() {
       setOperation('')
     }
   }
-
+  const handlePowNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber))
+      setCurrentNumber('0')
+      setOperation('*')
+    } else {
+      const sum = Number(firstNumber) ** Number(currentNumber)
+      console.log(sum)
+      setCurrentNumber(String(sum))
+      setOperation('')
+    }
+  }
   const handleEquals = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
       switch (operation) {
@@ -76,6 +87,9 @@ function App() {
         case '*':
           handleMultiNumbers()
           break
+        case '^':
+          handlePowNumbers()
+          break
         default:
           break
       }
@@ -87,7 +101,7 @@ function App() {
       <Content>
         <InputComponent value={currentNumber} />
         <Row>
-          <Button label="disabled %" />
+          <Button label="^" onClick={handlePowNumbers} />
           <Button label="C" onClick={() => handleClear()} />
           <Button label="*" onClick={handleMultiNumbers} />
           <Button label="/" onClick={handleDividerNumbers} />

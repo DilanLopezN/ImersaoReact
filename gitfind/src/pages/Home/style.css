@@ -1,0 +1,45 @@
+.container {
+  border: 1px solid red;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.background {
+  height: 80vh;
+  margin: 1rem;
+}
+
+.content {
+  color: white;
+  margin: 1rem;
+}
+.infos {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  border-radius: 8px;
+  border: 1px solid violet;
+  background: transparent;
+
+  min-width: 240px;
+  color: white;
+  font-size: 18px;
+
+  padding: 2px 12px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid violet;
+  background: transparent;
+
+  min-width: 240px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+
+  margin-top: 1rem;
+}

@@ -4,9 +4,10 @@ header {
   align-items: center;
   gap: 1rem;
 
-  background-color: #282d37;
+  border: 1px solid #301c59;
+  background-color: black;
   height: 3rem;
 }
 h1 {
-  color: #fff;
+  color: #846dd8;
 }

@@ -1,6 +1,7 @@
 import Header from '../../components/Header'
 import background from '../../assets/catgit.png'
 import './style.css'
+import Repos from '../../components/Repos'
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
         <div>
           <img src={background} alt="background" className="background" />
         </div>
+
+        <hr className="divisor" />
 
         <div className="content">
           <div className="infos">
@@ -23,8 +26,14 @@ function App() {
               className="profileImage"
               alt="user pictures profile"
             />
+            <h2>Dilan Lopez</h2>
+            <p>Descrição</p>
           </div>
         </div>
+
+        <hr className="divisor" />
+
+        <Repos title="Repositorios Dilan" description="Todos repositorios" />
       </div>
     </div>
   )

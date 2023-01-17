@@ -1,0 +1,9 @@
+.repos {
+  height: 80vh;
+  width: 50vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

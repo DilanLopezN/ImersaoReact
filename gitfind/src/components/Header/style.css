@@ -11,3 +11,8 @@ header {
 h1 {
   color: #846dd8;
 }
+
+span {
+  size: 80px;
+  width: 24px;
+}

@@ -7,7 +7,9 @@ export default function Header() {
     <>
       <header>
         <FaGithub size={26} color="#846dd8" />
-        <h1>GitFind</h1>
+        <h1>
+          <span>Git</span>find
+        </h1>
       </header>
     </>
   )

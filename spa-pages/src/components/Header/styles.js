@@ -41,6 +41,9 @@ export const SearchInput = styled.div`
   background: #2d2d37;
   margin-left: 1rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 4px;
 `
 export const Menu = styled.a`
@@ -72,4 +75,5 @@ export const UserPicture = styled.img`
 export const Input = styled.input`
   background: transparent;
   flex: 1;
+  color: white;
 `

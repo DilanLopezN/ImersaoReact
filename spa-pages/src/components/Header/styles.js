@@ -18,6 +18,7 @@ export const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 1rem;
 `
 
 export const Colum = styled.div`
@@ -27,9 +28,9 @@ export const Colum = styled.div`
 `
 
 export const Wrapper = styled.div`
-  background-color: #151515;
+  background-color: #15121f;
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -2,11 +2,13 @@ import styled, { css } from 'styled-components'
 
 export const ButtonContainer = styled.button`
   background: #565656;
-  border-radius: 8px;
+  border-radius: 12px;
   min-width: 120px;
   height: 33px;
   text-decoration: none;
-  color: white;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
 
   ${({ variant }) =>
     variant === 'primary' &&
@@ -14,6 +16,11 @@ export const ButtonContainer = styled.button`
       min-width: 167px;
       height: 33px;
 
-      background: #e4105d;
+      background: #61dcfb;
+      transition: all 0.2s;
+
+      &&:hover {
+        background: #0594cd;
+      }
     `}
 `

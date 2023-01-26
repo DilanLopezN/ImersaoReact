@@ -9,13 +9,12 @@ export const Container = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 `
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   font-weight: bold;
   font-size: 2rem;
-  width: 320px;
+
   margin-bottom: 1.25rem;
   line-height: 2.75rem;
 
@@ -25,13 +24,15 @@ export const Title = styled.h2`
     color: #61dcfb;
   }
 `
-
-export const TextContent = styled.p`
-  font-weight: 400;
-  font-size: 1rem;
+export const TitleHigh = styled.h3`
+  font-weight: bold;
+  font-size: 1.5rem;
   margin-bottom: 1.25rem;
-  line-height: 1.35rem;
-  width: 420px;
+  color: violet;
+  line-height: 2.75rem;
+`
 
-  color: white;
+export const Column = styled.div`
+  flex: ${({ flex }) => flex};
+  padding-right: 24px;
 `

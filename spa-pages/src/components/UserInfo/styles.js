@@ -2,7 +2,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 0ex;
+  margin-bottom: 24px;
 `
 export const UserPicture = styled.img`
   width: 80px;

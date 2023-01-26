@@ -10,10 +10,10 @@ import { FiThumbsUp } from 'react-icons/fi'
 export function Card() {
   return (
     <CardContainer>
-      <PictureBackground />
+      <PictureBackground src="https://mentorama.com.br/blog/wp-content/uploads/2022/06/capa-blog-coding-iniciante-1536x525.jpg" />
       <Content>
         <UserInfo>
-          <UserPicture />
+          <UserPicture src="https://avatars.githubusercontent.com/u/92648265?v=4" />
           <h4>Dilan lopez</h4>
           <p>Há 8 minutos</p>
         </UserInfo>

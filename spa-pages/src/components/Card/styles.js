@@ -23,6 +23,8 @@ export const UserInfo = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 12px;
+  align-items: center;
+  gap: 1rem;
 
   div {
     margin-left: 12px;
@@ -39,14 +41,15 @@ export const UserInfo = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 125%;
   }
 `
 export const UserPicture = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border: 3px solid white;
+  border: 1px solid cyan;
+  border-radius: 4rem;
 `
 export const PostInfo = styled.div`
   margin-bottom: 12px;

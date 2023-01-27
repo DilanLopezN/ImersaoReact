@@ -44,10 +44,21 @@ export function Login() {
             <SubTitle>Faça seu login make your destiny.</SubTitle>
           </Wrapper>
 
-          <form>
-            <Input placeholder="E-mail" leftIcon={<MdEmail />} />
-            <Input placeholder="Senha" type="password" leftIcon={<MdLock />} />
-            <Button title="Entrar" onClick={handleClickSignIn} type="button" />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input
+              name="email"
+              control={control}
+              placeholder="E-mail"
+              leftIcon={<MdEmail />}
+            />
+            <Input
+              name="password"
+              control={control}
+              placeholder="Senha"
+              type="password"
+              leftIcon={<MdLock />}
+            />
+            <Button title="Entrar" onClick={handleClickSignIn} type="submit" />
           </form>
           <Row>
             <p>Esqueci minha senha</p>

@@ -1,11 +1,19 @@
-import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 import { Header } from '../../components/Header'
 import { Wrapper, Row, SubTitle, Title, Container, Column } from './styles'
 import { Input } from '../../components/Input'
 import { MdEmail, MdLock } from 'react-icons/md'
-
 import { Button } from '../../components/Button'
+
+const schema = yup
+  .object({
+    email: yup.string().email('email não e válido').required(),
+    password: yup.number().min(8, 'Minimo de 8 caracteres').required()
+  })
+  .required()
 
 export function Login() {
   const navigate = useNavigate()
@@ -15,7 +23,12 @@ export function Login() {
     handleSubmit,
     watch,
     formState: { errors, isValid }
-  } = useForm()
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onChange'
+  })
+
+  console.log(isValid, errors)
   const onSubmit = data => console.log(data)
 
   const handleClickSignIn = () => {
@@ -58,7 +71,7 @@ export function Login() {
               type="password"
               leftIcon={<MdLock />}
             />
-            <Button title="Entrar" onClick={handleClickSignIn} type="submit" />
+            <Button title="Entrar" type="submit" />
           </form>
           <Row>
             <p>Esqueci minha senha</p>

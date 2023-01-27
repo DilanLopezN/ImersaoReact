@@ -10,8 +10,14 @@ import { Button } from '../../components/Button'
 
 const schema = yup
   .object({
-    email: yup.string().email('email não e válido').required(),
-    password: yup.number().min(8, 'Minimo de 8 caracteres').required()
+    email: yup
+      .string()
+      .email('email não e válido')
+      .required('campo obrigatorio'),
+    password: yup
+      .string()
+      .min(8, 'Minimo de 8 caracteres')
+      .required('campo obrigatorio')
   })
   .required()
 
@@ -63,6 +69,7 @@ export function Login() {
               control={control}
               placeholder="E-mail"
               leftIcon={<MdEmail />}
+              errorMessage={errors?.email?.message}
             />
             <Input
               name="password"
@@ -70,6 +77,7 @@ export function Login() {
               placeholder="Senha"
               type="password"
               leftIcon={<MdLock />}
+              errorMessage={errors?.password?.message}
             />
             <Button title="Entrar" type="submit" />
           </form>

@@ -6,7 +6,7 @@ import { UserInfo } from '../../components/UserInfo'
 export function Feed() {
   return (
     <>
-      <Header />
+      <Header userIsAuth={true} />
       <Container>
         <Column flex={3}>
           <Title>Feed</Title>

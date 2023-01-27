@@ -1,10 +1,16 @@
+import { useNavigate } from 'react-router-dom'
 import { Header } from '../../components/Header'
 import { Wrapper, Row, SubTitle, Title, Container, Column } from './styles'
 import { Input } from '../../components/Input'
 import { MdEmail, MdLock } from 'react-icons/md'
 
 import { Button } from '../../components/Button'
+
 export function Login() {
+  const navigate = useNavigate()
+  const handleClickSignIn = () => {
+    navigate('/feed')
+  }
   return (
     <>
       <Header />
@@ -31,7 +37,7 @@ export function Login() {
           <form>
             <Input placeholder="E-mail" leftIcon={<MdEmail />} />
             <Input placeholder="Senha" type="password" leftIcon={<MdLock />} />
-            <Button title="Entrar" />
+            <Button title="Entrar" onClick={handleClickSignIn} type="button" />
           </form>
           <Row>
             <p>Esqueci minha senha</p>

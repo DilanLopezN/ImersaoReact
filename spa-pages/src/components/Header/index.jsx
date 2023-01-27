@@ -9,22 +9,41 @@ import {
   Wrapper,
   Row
 } from './styles'
-export function Header() {
+import { UserPicture } from '../Card/styles'
+export function Header({ userIsAuth }) {
   return (
     <Wrapper>
       <Container>
         <Row>
           <img src={logo} alt="logo react" />
-          <SearchInput>
-            <Input placeholder="Buscar ..." />
-          </SearchInput>
-          <Menu>code anything</Menu>
-          <Menu>anywhere</Menu>
+
+          {userIsAuth ? (
+            <>
+              <SearchInput>
+                <Input placeholder="Buscar ..." />
+              </SearchInput>
+              <Menu>code anything</Menu>
+              <Menu>anywhere</Menu>
+            </>
+          ) : (
+            <>
+              <Menu>code anything</Menu>
+              <Menu>anywhere</Menu>
+            </>
+          )}
         </Row>
         <Row>
-          <MenuRight href="#">Home</MenuRight>
-          <Button title="Entrar" />
-          <Button title="Cadastrar" />
+          {userIsAuth ? (
+            <>
+              <UserPicture src="https://avatars.githubusercontent.com/u/92648265?v=4" />
+            </>
+          ) : (
+            <>
+              <MenuRight href="#">Home</MenuRight>
+              <Button title="Entrar" />
+              <Button title="Cadastrar" />
+            </>
+          )}
         </Row>
       </Container>
     </Wrapper>

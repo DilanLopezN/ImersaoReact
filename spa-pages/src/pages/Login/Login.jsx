@@ -1,3 +1,4 @@
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../../components/Header'
 import { Wrapper, Row, SubTitle, Title, Container, Column } from './styles'
@@ -8,6 +9,15 @@ import { Button } from '../../components/Button'
 
 export function Login() {
   const navigate = useNavigate()
+
+  const {
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid }
+  } = useForm()
+  const onSubmit = data => console.log(data)
+
   const handleClickSignIn = () => {
     navigate('/feed')
   }

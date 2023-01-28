@@ -3,7 +3,14 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Header } from '../../components/Header'
-import { Wrapper, Row, SubTitle, Title, Container, Column } from './styles'
+import {
+  Wrapper,
+  SubTitle,
+  Title,
+  Container,
+  Column,
+  StyledDiv
+} from './styles'
 import { Input } from '../../components/Input'
 import { MdEmail, MdLock } from 'react-icons/md'
 import { Button } from '../../components/Button'
@@ -57,11 +64,10 @@ export function Login() {
             para ambas plataformas
           </SubTitle>
         </Column>
-        <Column>
-          <Wrapper>
-            <Title>Faça seu cadastro</Title>
-            <SubTitle>Faça seu login make your destiny.</SubTitle>
-          </Wrapper>
+
+        <Wrapper>
+          <Title>Faça seu cadastro</Title>
+          <SubTitle>Faça seu login make your destiny.</SubTitle>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input
@@ -79,14 +85,16 @@ export function Login() {
               leftIcon={<MdLock />}
               errorMessage={errors?.password?.message}
             />
-            <Button title="Entrar" type="submit" />
+            <StyledDiv>
+              <Button title="Entrar" type="submit" />
+            </StyledDiv>
           </form>
-          <Row>
-            <p>Esqueci minha senha</p>
-
+          <StyledDiv>
             <p>Criar conta</p>
-          </Row>
-        </Column>
+
+            <strong>Esqueci minha senha</strong>
+          </StyledDiv>
+        </Wrapper>
       </Container>
     </>
   )

@@ -4,6 +4,7 @@ export const ButtonContainer = styled.button`
   background: #565656;
   border-radius: 12px;
   min-width: 120px;
+
   height: 33px;
   text-decoration: none;
   color: black;
@@ -15,7 +16,7 @@ export const ButtonContainer = styled.button`
     css`
       min-width: 167px;
       height: 33px;
-
+      width: 100%;
       background: #61dcfb;
       transition: all 0.2s;
 

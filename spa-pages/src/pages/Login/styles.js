@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.main`
-  width: 100%;
-  max-width: 80%;
+  width: 80%;
+  height: 80vh;
   margin: 0 auto;
   margin-top: 7rem;
 
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `
 
@@ -27,18 +26,17 @@ export const Title = styled.h2`
 `
 export const Wrapper = styled.div`
   max-width: 300px;
+  padding: 4px;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2rem;
 `
 export const Column = styled.div`
-  flex: 1;
-  flex-direction: column;
+  text-align: center;
 `
-export const Row = styled.div`
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-`
+
 export const SubTitle = styled.p`
   font-weight: 400;
   font-size: 1.125rem;
@@ -50,5 +48,22 @@ export const SubTitle = styled.p`
 
   span {
     color: #61dcfb;
+  }
+`
+export const StyledDiv = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  margin-top: 1rem;
+
+  p {
+    font-weight: 500;
+    color: cyan;
+  }
+
+  strong {
+    font-weight: 500;
+    color: yellow;
   }
 `

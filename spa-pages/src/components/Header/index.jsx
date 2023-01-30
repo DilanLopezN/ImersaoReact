@@ -1,5 +1,6 @@
 import { Button } from '../Button'
 import logo from '../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
 import {
   Container,
   SearchInput,
@@ -11,6 +12,7 @@ import {
 } from './styles'
 import { UserPicture } from '../Card/styles'
 export function Header({ userIsAuth }) {
+  const navigate = useNavigate()
   return (
     <Wrapper>
       <Container>
@@ -39,9 +41,9 @@ export function Header({ userIsAuth }) {
             </>
           ) : (
             <>
-              <MenuRight href="#">Home</MenuRight>
-              <Button title="Entrar" />
-              <Button title="Cadastrar" />
+              <Button title="Home" onClick={() => navigate('/')} />
+              <Button title="Entrar" onClick={() => navigate('/login')} />
+              <Button title="Cadastrar" onClick={() => navigate('/register')} />
             </>
           )}
         </Row>

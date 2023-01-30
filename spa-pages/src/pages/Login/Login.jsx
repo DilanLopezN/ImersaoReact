@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { api } from '../../services/api'
 import * as yup from 'yup'
 import { Header } from '../../components/Header'
 import {
@@ -23,7 +24,7 @@ const schema = yup
       .required('campo obrigatorio'),
     password: yup
       .string()
-      .min(8, 'Minimo de 8 caracteres')
+      .min(4, 'Minimo de 4 caracteres')
       .required('campo obrigatorio')
   })
   .required()
@@ -42,11 +43,22 @@ export function Login() {
   })
 
   console.log(isValid, errors)
-  const onSubmit = data => console.log(data)
-
-  const handleClickSignIn = () => {
-    navigate('/feed')
+  const onSubmit = async formData => {
+    try {
+      const { data } = await api.get(
+        `users?email=${formData.email}&senha=${formData.password}`
+      )
+      if (data.length === 1) {
+        navigate('/feed')
+      } else {
+        alert('Usuario não encontrado\n Email ou senha Inválidos')
+      }
+      console.log('retorno api', data)
+    } catch (error) {
+      alert('Houve um erro: ', error)
+    }
   }
+
   return (
     <>
       <Header />

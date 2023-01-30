@@ -1,3 +1,4 @@
+import React from 'react'
 import { Controller } from 'react-hook-form'
 import { IconContainer, InputContainer, InputText, ErrorText } from './styles'
 export function Input({ leftIcon, name, control, errorMessage, ...rest }) {

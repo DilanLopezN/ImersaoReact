@@ -1,3 +1,4 @@
+import React from 'react'
 import { Header } from '../../components/Header'
 import { Container, Column, Title, TitleHigh } from './styles'
 

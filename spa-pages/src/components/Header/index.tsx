@@ -1,17 +1,15 @@
+import React from 'react'
 import { Button } from '../Button'
 import logo from '../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
-import {
-  Container,
-  SearchInput,
-  Input,
-  Menu,
-  MenuRight,
-  Wrapper,
-  Row
-} from './styles'
+import { Container, SearchInput, Input, Menu, Wrapper, Row } from './styles'
 import { UserPicture } from '../Card/styles'
-export function Header({ userIsAuth }) {
+
+interface IHeader {
+  userIsAuth: boolean
+}
+
+export function Header({ userIsAuth }: IHeader) {
   const navigate = useNavigate()
   return (
     <Wrapper>

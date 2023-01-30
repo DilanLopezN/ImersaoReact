@@ -1,23 +1,33 @@
+import React from 'react'
+import { Button } from '../../components/Button'
+import { Header } from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
+import { Input } from '../../components/Input'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { api } from '../../services/api'
+
 import * as yup from 'yup'
-import { Header } from '../../components/Header'
 import {
-  Wrapper,
+  MdEmail,
+  MdLock,
+  MdOutlineDriveFileRenameOutline
+} from 'react-icons/md'
+import {
+  Column,
+  Container,
   SubTitle,
   Title,
-  Container,
-  Column,
+  Wrapper,
   StyledDiv
 } from './styles'
-import { Input } from '../../components/Input'
-import { MdEmail, MdLock } from 'react-icons/md'
-import { Button } from '../../components/Button'
 
 const schema = yup
   .object({
+    name: yup
+      .string()
+      .max(10, 'máximo de 10 caracteres')
+      .required('campo obrigatorio'),
     email: yup
       .string()
       .email('email não e válido')
@@ -29,9 +39,8 @@ const schema = yup
   })
   .required()
 
-export function Login() {
+export function Register() {
   const navigate = useNavigate()
-
   const {
     control,
     handleSubmit,
@@ -46,16 +55,23 @@ export function Login() {
   const onSubmit = async formData => {
     try {
       const { data } = await api.get(
-        `users?email=${formData.email}&senha=${formData.password}`
+        `users?email=${formData.email}&senha=${formData.password}&nome=${formData.name}`
       )
       if (data.length === 1) {
-        navigate('/feed')
+        {
+          /*  
+          possivel implementação de cadastro
+          precisaria criar server e usar o metodo vindo do fs do node
+      writeFileSync('../../db.json', data) */
+        }
+
+        navigate('/login')
       } else {
         alert('Usuario não encontrado\n Email ou senha Inválidos')
       }
       console.log('retorno api', data)
     } catch (error) {
-      alert('Houve um erro: ', error)
+      alert(error)
     }
   }
 
@@ -64,24 +80,20 @@ export function Login() {
       <Header />
       <Container>
         <Column>
-          <Title>Densevolvimento multiplataforma</Title>
-          <SubTitle>
-            Com <span>React</span> construa interfaces do futuro com
-            escalabilidade e perfomace usando o melhor do desenvolvimento web
-            moderno
-          </SubTitle>
-          <SubTitle>
-            Com <span>React Native</span> construa app's modernos reaproveitando
-            todo seu conhecimento de react para Android e IOS com o mesmo código
-            para ambas plataformas
-          </SubTitle>
+          <Title>Faça seu cadastro e comece agora mesmo</Title>
         </Column>
-
         <Wrapper>
-          <Title>Fazer login</Title>
-          <SubTitle>Faça seu login make your destiny.</SubTitle>
+          <Title>Cadastrar</Title>
+          <SubTitle>Fazer cadastro</SubTitle>
+          <form action="">
+            <Input
+              name="name"
+              control={control}
+              placeholder="Seu nome"
+              leftIcon={<MdOutlineDriveFileRenameOutline />}
+              errorMessage={errors?.name?.message}
+            />
 
-          <form onSubmit={handleSubmit(onSubmit)}>
             <Input
               name="email"
               control={control}
@@ -101,11 +113,6 @@ export function Login() {
               <Button title="Entrar" type="submit" />
             </StyledDiv>
           </form>
-          <StyledDiv>
-            <p>Criar conta</p>
-
-            <strong>Esqueci minha senha</strong>
-          </StyledDiv>
         </Wrapper>
       </Container>
     </>

@@ -4,6 +4,7 @@ import { ButtonContainer } from './styles'
 interface IButton {
   title: string
   variant?: string
+  type?: string
   onClick?: () => void
 }
 export function Button({ title, variant = 'primary', onClick }: IButton) {

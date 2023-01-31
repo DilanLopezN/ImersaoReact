@@ -30,6 +30,10 @@ const schema = yup
   })
   .required()
 
+interface IFormsData {
+  email?: string
+  password?: string
+}
 export function Login() {
   const navigate = useNavigate()
 
@@ -38,13 +42,13 @@ export function Login() {
     handleSubmit,
     watch,
     formState: { errors, isValid }
-  } = useForm({
+  } = useForm<IFormsData>({
     resolver: yupResolver(schema),
     mode: 'onChange'
   })
 
   console.log(isValid, errors)
-  const onSubmit = async formData => {
+  const onSubmit = async (formData: IFormsData) => {
     try {
       const { data } = await api.get(
         `users?email=${formData.email}&senha=${formData.password}`
@@ -56,7 +60,7 @@ export function Login() {
       }
       console.log('retorno api', data)
     } catch (error) {
-      alert('Houve um erro: ', error)
+      alert(error)
     }
   }
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from '../Button'
 import logo from '../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +5,7 @@ import { Container, SearchInput, Input, Menu, Wrapper, Row } from './styles'
 import { UserPicture } from '../Card/styles'
 
 interface IHeader {
-  userIsAuth: boolean
+  userIsAuth?: boolean
 }
 
 export function Header({ userIsAuth }: IHeader) {

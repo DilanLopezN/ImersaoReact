@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+interface IStyled {
+  flex: number
+}
 
 export const Container = styled.main`
   width: 100%;
@@ -32,7 +35,7 @@ export const TitleHigh = styled.h3`
   line-height: 2.75rem;
 `
 
-export const Column = styled.div`
+export const Column = styled.div<IStyled>`
   flex: ${({ flex }) => flex};
   padding-right: 24px;
 `

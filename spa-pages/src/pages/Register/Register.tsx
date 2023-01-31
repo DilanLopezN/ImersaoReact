@@ -39,6 +39,11 @@ const schema = yup
   })
   .required()
 
+interface IFormsData {
+  name: any
+  email?: string
+  password?: string
+}
 export function Register() {
   const navigate = useNavigate()
   const {
@@ -52,7 +57,7 @@ export function Register() {
   })
 
   console.log(isValid, errors)
-  const onSubmit = async formData => {
+  const onSubmit = async (formData: IFormsData) => {
     try {
       const { data } = await api.get(
         `users?email=${formData.email}&senha=${formData.password}&nome=${formData.name}`

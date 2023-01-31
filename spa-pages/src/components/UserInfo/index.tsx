@@ -1,6 +1,12 @@
 import React from 'react'
 import { Container, UserPicture, Progress } from './styles'
-export function UserInfo({ name, image, percentual }) {
+
+interface IUserPic {
+  name?: string
+  image?: string
+  percentual: number
+}
+export function UserInfo({ name, image, percentual }: IUserPic) {
   return (
     <Container>
       <UserPicture src={image} />

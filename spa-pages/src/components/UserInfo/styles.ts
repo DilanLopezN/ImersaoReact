@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+interface IStyles {
+  percentual: number
+}
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -12,7 +15,7 @@ export const UserPicture = styled.img`
   border-radius: 4rem;
   margin-right: 12px;
 `
-export const Progress = styled.div`
+export const Progress = styled.div<IStyles>`
   width: 180px;
   height: 6px;
   background-color: #ffffff;

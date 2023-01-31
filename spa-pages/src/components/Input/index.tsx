@@ -1,7 +1,22 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
 import { IconContainer, InputContainer, InputText, ErrorText } from './styles'
-export function Input({ leftIcon, name, control, errorMessage, ...rest }) {
+interface InputI {
+  name: string
+  leftIcon?: React.ReactNode
+  control: any
+  errorMessage?: any
+  placeholder?: string
+  type?: string
+}
+
+export function Input({
+  leftIcon,
+  name,
+  control,
+  errorMessage,
+  ...rest
+}: InputI) {
   return (
     <>
       <InputContainer>

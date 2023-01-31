@@ -1,9 +1,5 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useContext } from 'react'
-import { api } from '../../services/api'
 import * as yup from 'yup'
 import { Header } from '../../components/Header'
 import {
@@ -17,7 +13,8 @@ import {
 import { Input } from '../../components/Input'
 import { MdEmail, MdLock } from 'react-icons/md'
 import { Button } from '../../components/Button'
-import { AuthContext } from '../../context/auth'
+
+import { useAuth } from '../../hooks/useAuth'
 
 const schema = yup
   .object({
@@ -37,7 +34,7 @@ interface IFormsData {
   password: string
 }
 export function Login() {
-  const { handleLogin } = useContext(AuthContext)
+  const { handleLogin } = useAuth()
 
   const {
     control,

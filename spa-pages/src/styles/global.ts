@@ -14,5 +14,12 @@ export const GlobalStyle = createGlobalStyle`
     color: white;
   }
   
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+
+    color: violet;
+  }
 
 `

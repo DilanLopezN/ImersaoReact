@@ -3,12 +3,12 @@ import logo from '../../assets/logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { Container, SearchInput, Input, Menu, Wrapper, Row } from './styles'
 import { UserPicture } from '../Card/styles'
-import { useContext } from 'react'
-import { AuthContext } from '../../context/auth'
+
+import { useAuth } from '../../hooks/useAuth'
 
 export function Header() {
   const navigate = useNavigate()
-  const { user, handleSignOut } = useContext(AuthContext)
+  const { user, handleSignOut } = useAuth()
   return (
     <Wrapper>
       <Container>

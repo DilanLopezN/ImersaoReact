@@ -5,11 +5,17 @@ interface IButton {
   title: string
   variant?: string
   type?: string
+  isDisabled?: any
   onClick?: () => void
 }
-export function Button({ title, variant = 'primary', onClick }: IButton) {
+export function Button({
+  title,
+  isDisabled,
+  variant = 'primary',
+  onClick
+}: IButton) {
   return (
-    <ButtonContainer variant={variant} onClick={onClick}>
+    <ButtonContainer variant={variant} onClick={onClick} disabled={isDisabled}>
       {title}
     </ButtonContainer>
   )

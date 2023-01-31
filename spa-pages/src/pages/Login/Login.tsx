@@ -63,6 +63,15 @@ export function Login() {
       alert(error)
     }
   }
+  function validateButton() {
+    if (!isValid) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  console.log('retorno validation button', validateButton())
 
   return (
     <>
@@ -103,7 +112,11 @@ export function Login() {
               errorMessage={errors?.password?.message}
             />
             <StyledDiv>
-              <Button title="Entrar" type="submit" />
+              <Button
+                title="Entrar"
+                type="submit"
+                isDisabled={validateButton()}
+              />
             </StyledDiv>
           </form>
           <StyledDiv>

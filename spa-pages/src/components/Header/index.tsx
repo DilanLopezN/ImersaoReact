@@ -1,22 +1,23 @@
 import { Button } from '../Button'
 import logo from '../../assets/logo.svg'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Container, SearchInput, Input, Menu, Wrapper, Row } from './styles'
 import { UserPicture } from '../Card/styles'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/auth'
 
-interface IHeader {
-  userIsAuth?: boolean
-}
-
-export function Header({ userIsAuth }: IHeader) {
+export function Header() {
   const navigate = useNavigate()
+  const { user, handleSignOut } = useContext(AuthContext)
   return (
     <Wrapper>
       <Container>
         <Row>
-          <img src={logo} alt="logo react" />
+          <Link to="/">
+            <img src={logo} alt="logo react" />
+          </Link>
 
-          {userIsAuth ? (
+          {user.id ? (
             <>
               <SearchInput>
                 <Input placeholder="Buscar ..." />
@@ -32,9 +33,12 @@ export function Header({ userIsAuth }: IHeader) {
           )}
         </Row>
         <Row>
-          {userIsAuth ? (
+          {user.id ? (
             <>
               <UserPicture src="https://avatars.githubusercontent.com/u/92648265?v=4" />
+              <a href="#" onClick={handleSignOut}>
+                Sair
+              </a>
             </>
           ) : (
             <>

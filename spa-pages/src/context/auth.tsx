@@ -5,6 +5,7 @@ import { IUser } from '../types/user'
 interface IAuthContext {
   user: IUser
   handleLogin: (loginData: ILoginData) => Promise<void>
+  handleSignOut: () => void
 }
 interface IAuthContextProviderProps {
   children: React.ReactNode
@@ -39,8 +40,12 @@ export const AuthContextProvider = ({
     }
   }
 
+  const handleSignOut = () => {
+    setUser({} as IUser)
+  }
+
   return (
-    <AuthContext.Provider value={{ user, handleLogin }}>
+    <AuthContext.Provider value={{ user, handleLogin, handleSignOut }}>
       {children}
     </AuthContext.Provider>
   )

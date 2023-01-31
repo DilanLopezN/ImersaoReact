@@ -7,16 +7,16 @@ import { AuthContextProvider } from './context/auth'
 
 function App() {
   return (
-    <AuthContextProvider>
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
-      </Router>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </Router>
   )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useContext } from 'react'
 import { api } from '../../services/api'
 import * as yup from 'yup'
 import { Header } from '../../components/Header'
@@ -16,6 +17,7 @@ import {
 import { Input } from '../../components/Input'
 import { MdEmail, MdLock } from 'react-icons/md'
 import { Button } from '../../components/Button'
+import { AuthContext } from '../../context/auth'
 
 const schema = yup
   .object({
@@ -31,11 +33,11 @@ const schema = yup
   .required()
 
 interface IFormsData {
-  email?: string
-  password?: string
+  email: string
+  password: string
 }
 export function Login() {
-  const navigate = useNavigate()
+  const { handleLogin } = useContext(AuthContext)
 
   const {
     control,
@@ -49,19 +51,7 @@ export function Login() {
 
   console.log(isValid, errors)
   const onSubmit = async (formData: IFormsData) => {
-    try {
-      const { data } = await api.get(
-        `users?email=${formData.email}&senha=${formData.password}`
-      )
-      if (data.length === 1) {
-        navigate('/feed')
-      } else {
-        alert('Usuario não encontrado\n Email ou senha Inválidos')
-      }
-      console.log('retorno api', data)
-    } catch (error) {
-      alert(error)
-    }
+    handleLogin(formData)
   }
   function validateButton() {
     if (!isValid) {

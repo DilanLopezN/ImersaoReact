@@ -6,9 +6,10 @@
   withdraw
 */
 
-class Account {
+abstract class Account {
   name: string
   accountNumber: number
+  balance: number = 0
 
   constructor(name: string, accountNumber: number) {
     this.accountNumber = accountNumber
@@ -22,27 +23,23 @@ class Account {
   withdraw = () => {
     console.log('Você sacou')
   }
-}
-
-/* 
-const testAccount: Account = new Account('contatest', 1)
-testAccount.deposit()
-testAccount.withdraw()
-
-*/
-
-class Admin extends Account {
-  balance: number
-
-  constructor(name: string, accountNumber: number) {
-    super(name, accountNumber)
-    this.balance = 20
-  }
 
   getBalance = () => {
     console.log(this.balance)
   }
 }
 
-const adminTestAccount: Admin = new Admin('adminAcc', 2)
-console.log(adminTestAccount)
+class Admin extends Account {
+  constructor(name: string, accountNumber: number) {
+    super(name, accountNumber)
+  }
+}
+
+class PeopleAccount extends Account {
+  doc_id: number
+
+  constructor(doc_id: number, name: string, accountNumber: number) {
+    super(name, accountNumber)
+    this.doc_id = doc_id
+  }
+}

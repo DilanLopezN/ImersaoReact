@@ -1,20 +1,17 @@
-/* typebank 
-  requisits;
-  Name,
-  Number
-  deposit,
-  withdraw
-*/
-import { Account } from './class/Account'
+import { BankAccount } from './class/BankAccount'
 import { CompanyAccount } from './class/CompanyAccount'
 import { PeopleAccount } from './class/PeopleAccount'
 
-class Admin extends Account {
-  constructor(name: string, accountNumber: number) {
-    super(name, accountNumber)
-  }
-}
 const peopleAccount: PeopleAccount = new PeopleAccount(1, 'Dilan', 10)
 const companyAccount: CompanyAccount = new CompanyAccount('americanas', 2)
-console.log(peopleAccount)
-console.log(companyAccount)
+const bankAcccount: BankAccount = new BankAccount('typebank', 123)
+bankAcccount.deposit(500)
+console.log(bankAcccount.getBalance())
+
+peopleAccount.deposit(200)
+peopleAccount.withdraw(100)
+console.log(peopleAccount.getBalance())
+
+companyAccount.deposit(200)
+companyAccount.getLoan(300)
+console.log(companyAccount.getBalance())

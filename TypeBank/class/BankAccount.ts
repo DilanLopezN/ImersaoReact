@@ -1,14 +1,13 @@
 import { Account } from './Account'
 
-export class CompanyAccount extends Account {
+export class BankAccount extends Account {
   constructor(name: string, accountNumber: number) {
     super(name, accountNumber)
   }
-
-  getLoan = (total: number): void => {
+  deposit = (total: number): void => {
     if (this.validateStatus()) {
-      this.balance += total
+      this.balance += total + 10
+      console.log('A empresa depositou')
     }
-    console.log('Você pegou um empréstimo')
   }
 }

@@ -1,6 +1,6 @@
 export abstract class Account {
-  private name: string
-  accountNumber: number
+  private readonly name: string
+  private readonly accountNumber: number
   balance: number = 0
   private status: boolean = true
 
@@ -9,28 +9,34 @@ export abstract class Account {
     this.name = name
   }
 
-  setName = (name: string): void => {
-    this.name = name
-  }
   getName = (): string => {
     return this.name
   }
+  getAccountNumber = (): number => {
+    return this.accountNumber
+  }
 
-  deposit = (): void => {
+  deposit = (total: number): void => {
     if (this.validateStatus()) {
+      this.balance += total
       console.log('Você depositou')
     }
   }
 
-  withdraw = (): void => {
-    console.log('Você sacou')
+  withdraw = (total: number): void => {
+    if (this.validateStatus()) {
+      if (this.balance >= total) {
+        this.balance -= total
+        console.log(`você sacou ${total} saldo atual: ${this.balance}`)
+      }
+    }
   }
 
-  getBalance = (): void => {
-    console.log(this.balance)
+  getBalance = (): number => {
+    return this.balance
   }
 
-  private validateStatus = (): boolean => {
+  validateStatus = (): boolean => {
     if (this.status) {
       return this.status
     }

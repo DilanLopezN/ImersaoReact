@@ -5,41 +5,16 @@
   deposit,
   withdraw
 */
-
-abstract class Account {
-  name: string
-  accountNumber: number
-  balance: number = 0
-
-  constructor(name: string, accountNumber: number) {
-    this.accountNumber = accountNumber
-    this.name = name
-  }
-
-  deposit = () => {
-    console.log('Você depositou')
-  }
-
-  withdraw = () => {
-    console.log('Você sacou')
-  }
-
-  getBalance = () => {
-    console.log(this.balance)
-  }
-}
+import { Account } from './class/Account'
+import { CompanyAccount } from './class/CompanyAccount'
+import { PeopleAccount } from './class/PeopleAccount'
 
 class Admin extends Account {
   constructor(name: string, accountNumber: number) {
     super(name, accountNumber)
   }
 }
-
-class PeopleAccount extends Account {
-  doc_id: number
-
-  constructor(doc_id: number, name: string, accountNumber: number) {
-    super(name, accountNumber)
-    this.doc_id = doc_id
-  }
-}
+const peopleAccount: PeopleAccount = new PeopleAccount(1, 'Dilan', 10)
+const companyAccount: CompanyAccount = new CompanyAccount('americanas', 2)
+console.log(peopleAccount)
+console.log(companyAccount)

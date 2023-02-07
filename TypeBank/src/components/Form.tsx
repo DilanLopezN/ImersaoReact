@@ -1,7 +1,7 @@
 import { Box, Center, Input } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { api } from '../services/api'
-import { Login } from '../services/login'
+import { login } from '../services/login'
 import { ButtonContent } from './Button'
 
 interface IUserData {
@@ -36,7 +36,7 @@ export const Form = () => {
 
         <Input placeholder="password" />
         <Center>
-          <ButtonContent onClick={() => Login(email)} title="Entrar" />
+          <ButtonContent onClick={() => login(email)} title="Entrar" />
         </Center>
       </Box>
     </Box>

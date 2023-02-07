@@ -1,11 +1,20 @@
 import { Box, Center, Input } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { api } from '../services/api'
 import { Login } from '../services/Login'
 import { ButtonContent } from './Button'
 
 export const Form = () => {
   const [email, setEmail] = useState('')
   console.log(email)
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await api
+      console.log(data)
+    }
+    getData()
+  })
 
   return (
     <Box minHeight="100vh" backgroundColor="#9413dc" padding="25px">

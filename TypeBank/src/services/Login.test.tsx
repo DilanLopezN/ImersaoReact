@@ -1,11 +1,18 @@
 import { Login } from './Login'
+import * as mockApi from './api'
 
 describe('deve exibir alert com mensagem bem vindos', () => {
-  it('login', () => {
-    const mockAlert = jest.fn()
-    window.alert = mockAlert
+  const mockAlert = jest.fn()
+  window.alert = mockAlert
 
-    Login('di@email.com')
-    expect(window.alert).toBeCalledWith('Bem vindo! di@email.com')
+  const mockEmail = 'di@teste.com'
+  it('login', async () => {
+    await Login('di@teste.com')
+    expect(mockAlert).toBeCalledWith(`Bem vindo! ${mockEmail}`)
+  })
+
+  it('deve exibir erro caso email seja invalido', async () => {
+    await Login('invalido@email')
+    expect(mockAlert).toHaveBeenCalledWith('Email invalido')
   })
 })

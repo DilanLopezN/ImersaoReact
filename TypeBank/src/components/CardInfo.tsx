@@ -9,6 +9,7 @@ export const CardInfo = ({ text }: ICardInfo) => {
       minHeight="120px"
       width={320}
       borderRadius="18px"
+      textAlign="center"
     >
       <h1>Bem vindo!</h1>
       <p>{text}</p>

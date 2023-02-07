@@ -1,12 +1,13 @@
-import { Footer } from './Footer'
 import { Header } from './Header'
+import { StyledLayout } from '../styles/style.layout'
 
 export const Layout = ({ children }: any) => {
   return (
     <>
-      <Header title="Typebank" />
-      {children}
-      <Footer />
+      <StyledLayout>
+        <Header title="Typebank" />
+        {children}
+      </StyledLayout>
     </>
   )
 }

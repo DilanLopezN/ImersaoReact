@@ -1,8 +1,9 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 interface ICardInfo {
-  text: string
+  textTitle: string
+  textContent: string | number
 }
-export const CardInfo = ({ text }: ICardInfo) => {
+export const CardInfo = ({ textTitle, textContent }: ICardInfo) => {
   return (
     <Box
       backgroundColor="white"
@@ -11,8 +12,10 @@ export const CardInfo = ({ text }: ICardInfo) => {
       borderRadius="18px"
       textAlign="center"
     >
-      <h1>Bem vindo!</h1>
-      <p>{text}</p>
+      <Text fontSize="2xl" fontWeight="bold">
+        {textTitle}
+      </Text>
+      <Text fontSize="xl">{textContent}</Text>
     </Box>
   )
 }

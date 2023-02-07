@@ -1,4 +1,4 @@
-import { Login } from './Login'
+import { login } from './login'
 import * as mockApi from './api'
 
 describe('deve exibir alert com mensagem bem vindos', () => {
@@ -7,12 +7,12 @@ describe('deve exibir alert com mensagem bem vindos', () => {
 
   const mockEmail = 'di@teste.com'
   it('login', async () => {
-    await Login('di@teste.com')
+    await login('di@teste.com')
     expect(mockAlert).toBeCalledWith(`Bem vindo! ${mockEmail}`)
   })
 
   it('deve exibir erro caso email seja invalido', async () => {
-    await Login('invalido@email')
+    await login('invalido@email')
     expect(mockAlert).toHaveBeenCalledWith('Email invalido')
   })
 })

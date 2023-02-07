@@ -1,11 +1,13 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import { Form } from './components/Form'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './pages/Login'
 
 function App() {
   return (
-    <ChakraProvider>
-      <Form />
-    </ChakraProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

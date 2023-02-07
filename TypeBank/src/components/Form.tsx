@@ -1,7 +1,7 @@
 import { Box, Center, Input } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { api } from '../services/api'
-import { Login } from '../services/Login'
+import { Login } from '../services/login'
 import { ButtonContent } from './Button'
 
 interface IUserData {

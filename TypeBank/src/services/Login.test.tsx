@@ -9,6 +9,11 @@ jest.mock('react', () => ({
   })
 }))
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: jest.fn()
+}))
+
 describe('deve exibir alert com mensagem bem vindos', () => {
   const mockAlert = jest.fn()
   window.alert = mockAlert

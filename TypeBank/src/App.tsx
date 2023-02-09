@@ -9,8 +9,8 @@ interface IAppContext {
   user: string
 }
 
-const AppContext = createContext({} as IAppContext)
-export const AppContextProvider = ({ children }: any) => {
+export const AppContext = createContext({} as IAppContext)
+const AppContextProvider = ({ children }: any) => {
   const user = 'dilan'
   return <AppContext.Provider value={{ user }}>{children}</AppContext.Provider>
 }

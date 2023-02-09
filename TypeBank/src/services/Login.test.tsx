@@ -1,6 +1,13 @@
 import { login } from './login'
 import * as mockApi from './api'
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useContext: () => ({
+    isLoggedIn: true
+  })
+}))
+
 describe('deve exibir alert com mensagem bem vindos', () => {
   const mockAlert = jest.fn()
   window.alert = mockAlert

@@ -10,5 +10,5 @@ export const login = async (email: string): Promise<void> => {
     return alert('Email invalido')
   }
   setIsLoggedIn(true)
-  alert(`Bem vindo! ${email}`)
+  navigate(`/${data.id}`)
 }

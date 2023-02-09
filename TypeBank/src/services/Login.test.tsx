@@ -1,6 +1,7 @@
 import { login } from './login'
 
 const mocksetIsLoggedIn = jest.fn()
+const mockNavigate = jest.fn()
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -10,19 +11,18 @@ jest.mock('react', () => ({
 }))
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: jest.fn()
+  ...(jest.requireActual('react-router-dom') as any),
+  useNavigate: () => mockNavigate
 }))
 
 describe('deve exibir alert com mensagem bem vindos', () => {
   const mockAlert = jest.fn()
   window.alert = mockAlert
 
-  const mockEmail = 'di@teste.com'
   it('login', async () => {
     await login('di@teste.com')
     expect(mocksetIsLoggedIn).toHaveBeenCalledWith(true)
-    expect(mockAlert).toBeCalledWith(`Bem vindo! ${mockEmail}`)
+    expect(mockNavigate).toHaveBeenCalledWith('/123')
   })
 
   it('deve exibir erro caso email seja invalido', async () => {

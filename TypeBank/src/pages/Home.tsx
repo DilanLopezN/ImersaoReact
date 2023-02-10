@@ -34,7 +34,10 @@ export default function Home() {
 
         <Input placeholder="password" />
         <Center>
-          <ButtonContent onClick={() => validadeUser(email)} title="Entrar" />
+          <ButtonContent
+            onClick={(): any => validadeUser(email)}
+            title="Entrar"
+          />
         </Center>
       </Box>
     </Form>

@@ -5,17 +5,17 @@ const typeBank = {
   login: false
 }
 describe('storage', () => {
-  const getItem = jest.spyOn(Storage.prototype, 'getItem')
   it('deve retornar objeto localStorage', () => {
+    const mockGetItem = jest.spyOn(Storage.prototype, 'typebank')
     getLocalStorage()
-    expect(getItem).toHaveBeenCalled()
+    expect(mockGetItem).toHaveBeenCalledWith('typebank')
   })
 
   it('deve criar objeto no localStorage', () => {
     const mockSetItem = jest.spyOn(Storage.prototype, 'setItem')
     createLocalStorage()
     expect(mockSetItem).toHaveBeenCalledWith(
-      'typeBank',
+      'typebank',
       JSON.stringify(typeBank)
     )
   })

@@ -1,5 +1,5 @@
 export const getLocalStorage = () => {
-  return localStorage.getItem('')
+  return localStorage.getItem('typebank')
 }
 
 const typeBank = {

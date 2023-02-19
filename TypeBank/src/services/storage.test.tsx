@@ -1,10 +1,15 @@
 import { json } from 'node:stream/consumers'
-import { createLocalStorage, getLocalStorage } from './storage'
+import {
+  changeLocalStorage,
+  createLocalStorage,
+  getLocalStorage
+} from './storage'
 
 const typeBank = {
   login: false
 }
 describe('storage', () => {
+  const mockSetItem = jest.spyOn(Storage.prototype, 'setItem')
   it('deve retornar objeto localStorage', () => {
     const mockGetItem = jest.spyOn(Storage.prototype, 'typebank')
     getLocalStorage()
@@ -12,11 +17,15 @@ describe('storage', () => {
   })
 
   it('deve criar objeto no localStorage', () => {
-    const mockSetItem = jest.spyOn(Storage.prototype, 'setItem')
     createLocalStorage()
     expect(mockSetItem).toHaveBeenCalledWith(
       'typebank',
       JSON.stringify(typeBank)
     )
+  })
+
+  it('deve alterar o valor do objeto no localStorage', () => {
+    changeLocalStorage('exemple')
+    expect(mockSetItem).toHaveBeenCalledWith('typebank', 'example')
   })
 })

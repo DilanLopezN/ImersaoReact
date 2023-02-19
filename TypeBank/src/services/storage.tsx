@@ -15,5 +15,5 @@ export const createLocalStorage = (): void => {
 }
 
 export const changeLocalStorage = (typebank: ITypeBank) => {
-  localStorage.setItem('typebank', JSON.stringify(typebank))
+  localStorage.setItem('typebank', JSON.stringify(typeBank))
 }

@@ -25,7 +25,7 @@ describe('storage', () => {
   })
 
   it('deve alterar o valor do objeto no localStorage', () => {
-    changeLocalStorage('exemple')
-    expect(mockSetItem).toHaveBeenCalledWith('typebank', 'example')
+    changeLocalStorage(typeBank)
+    expect(mockSetItem).toHaveBeenCalledWith('typebank', typeBank)
   })
 })

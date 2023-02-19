@@ -1,4 +1,4 @@
-interface TypeBank {
+interface ITypeBank {
   login: boolean
 }
 
@@ -14,6 +14,6 @@ export const createLocalStorage = (): void => {
   localStorage.setItem('typebank', JSON.stringify(typeBank))
 }
 
-export const changeLocalStorage = (value: string) => {
-  localStorage.setItem('typebank', value)
+export const changeLocalStorage = (typebank: ITypeBank) => {
+  localStorage.setItem('typebank', JSON.stringify(typebank))
 }

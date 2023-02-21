@@ -5,12 +5,16 @@ const db = [
   }
 ]
 export class UserService {
-  createUserInDb = (name: string, email: string) => {
+  createUser = (name: string, email: string) => {
     const user = {
       name,
       email
     }
     db.push(user)
     console.log(db)
+  }
+
+  getAllUsers = () => {
+    return db
   }
 }

@@ -6,6 +6,7 @@ const server = express()
 const userController = new UserController()
 
 server.use(express.json())
+
 server.get('/', (req: Request, res: Response) => {
   return res.status(200).json({
     message: 'Typebank API'
@@ -13,6 +14,7 @@ server.get('/', (req: Request, res: Response) => {
 })
 
 server.post('/user', userController.createUser)
+server.get('/user', userController.getAllUsers)
 
 server.listen(5000, () => {
   console.log('Servidor Iniciado/On')

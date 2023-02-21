@@ -8,8 +8,14 @@ export class UserController {
     if (!userData.name) {
       return res.status(400).json({ message: 'Nome obrigatorio' })
     }
-    userService.createUserInDb(userData.name, userData.email)
+    userService.createUser(userData.name, userData.email)
 
     return res.status(201).json({ message: 'Usuario criado' })
+  }
+
+  getAllUsers = (req: Request, res: Response) => {
+    const userService = new UserService()
+    const users = userService.getAllUsers()
+    return res.status(200).json(users)
   }
 }

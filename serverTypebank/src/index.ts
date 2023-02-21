@@ -3,13 +3,6 @@ import { UserController } from './controllers/UserController'
 
 const server = express()
 
-const db = [
-  {
-    name: 'Dilan',
-    email: 'dilan@gmail.com'
-  }
-]
-
 const userController = new UserController()
 
 server.use(express.json())

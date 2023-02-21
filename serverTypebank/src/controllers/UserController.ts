@@ -1,16 +1,15 @@
 import { Request, Response } from 'express'
+import { UserService } from '../services/UserService'
 
-const db = [
-  {
-    name: 'Dilan',
-    email: 'dilan@gmail.com'
-  }
-]
 export class UserController {
   createUser = (req: Request, res: Response) => {
-    const data = req.body
-    db.push(data)
-    console.log(db)
+    const userService = new UserService()
+    const userData = req.body
+    if (!userData.name) {
+      return res.status(400).json({ message: 'Nome obrigatorio' })
+    }
+    userService.createUserInDb(userData.name, userData.email)
+
     return res.status(201).json({ message: 'Usuario criado' })
   }
 }

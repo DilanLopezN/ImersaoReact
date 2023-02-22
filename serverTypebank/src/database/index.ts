@@ -1,14 +1,11 @@
+import path from 'path'
+
 import { DataSource } from 'typeorm'
+
+const migrationPath = path.join(__dirname, 'src', 'database', 'migrations')
 
 export const AppDataSource = new DataSource({
   type: 'sqlite',
   database: './src/database/db.sqlite',
-  migrations: ['./src/database/migrations/*.ts']
+  migrations: [`${migrationPath}/*.ts`]
 })
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Data Source has been initialized!')
-  })
-  .catch(err => {
-    console.error('Error during Data Source initialization', err)
-  })

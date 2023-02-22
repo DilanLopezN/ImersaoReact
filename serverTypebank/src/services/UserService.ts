@@ -15,6 +15,7 @@ export class UserService {
   constructor(database = db) {
     this.db = database
   }
+
   createUser = (name: string, email: string) => {
     const user = {
       name,
@@ -25,6 +26,19 @@ export class UserService {
   }
 
   getAllUsers = () => {
+    console.log(this.db)
     return this.db
+  }
+
+  deleteUser = (name: string, email: string) => {
+    const user = {
+      name,
+      email
+    }
+    this.db.push(user)
+    const userToRemove = this.db.find(user => user.name === name)
+    if (userToRemove) {
+      console.log('Removendo usuario', userToRemove)
+    }
   }
 }
